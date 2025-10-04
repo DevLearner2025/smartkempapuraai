@@ -1,0 +1,18 @@
+# Robots.txt file for SmartKempapuraAI
+# Website: https://smartkempapuraai.netlify.app/
+# Generated: October 2025
+
+User-agent: *
+Allow: /
+
+# Disallow access to admin or private areas (if any in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all search engines to crawl CSS and JavaScript files
+User-agent: *
+Allow: /style.css
+Allow: /app.js
+
+# Sitemap location
+Sitemap: https://smartkempapuraai.netlify.app/sitemap.xml
