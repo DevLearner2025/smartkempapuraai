@@ -1468,3 +1468,48 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(0);
   }
 }
+/* Logo link styling */
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    opacity: 0.8;
+}
+
+/* Logo image styling */
+.logo-image {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Logo text styling */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+    .logo-image {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .logo-text {
+        font-size: 1.2rem;
+    }
+    
+    .logo-link {
+        gap: 8px;
+    }
+}
+
