@@ -213,9 +213,10 @@ function handleFormSubmit(e) {
     // Collect form data
     const formData = collectFormData();
     
-    // Simulate form submission (in real app, this would be an API call)
-    setTimeout(() => {
-        console.log('Contact form submitted successfully!', formData);
+    // Send email using EmailJS
+emailjs.sendForm('service_smartkempapura', 'template_contact', contactForm)
+    .then(function(response) {
+        console.log('SUCCESS!', response.status, response.text);
         
         // Reset button
         submitButton.textContent = originalText;
@@ -231,11 +232,21 @@ function handleFormSubmit(e) {
         // Clear any validation errors
         const errorMessages = contactForm.querySelectorAll('.error-message');
         errorMessages.forEach(error => error.classList.remove('show'));
-        
         const errorFields = contactForm.querySelectorAll('.form-control.error');
         errorFields.forEach(field => field.classList.remove('error'));
         
-    }, 1500);
+    }, function(error) {
+        console.log('FAILED...', error);
+        
+        // Reset button
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+        submitButton.classList.remove('loading');
+        
+        // Show error alert
+        alert('Failed to send form. Please try again or contact us directly at smartkempapuraai@gmail.com');
+    });
+
 }
 
 function validateForm() {
