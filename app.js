@@ -214,7 +214,7 @@ function handleFormSubmit(e) {
     const formData = collectFormData();
     
     // Send email using EmailJS
-emailjs.sendForm('service_smartkempapura', 'template_contact', contactForm)
+emailjs.sendForm('service_04msxa7', 'template_gi15oyb', contactForm)
     .then(function(response) {
         console.log('SUCCESS!', response.status, response.text);
         
