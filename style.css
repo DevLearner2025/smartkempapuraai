@@ -65,6 +65,12 @@
   --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
   --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
 
+  /* Input text colors - PROFESSIONAL FIX */
+  --color-input-text: #1F2937;
+  --color-input-text-focus: #111827;
+  --color-input-placeholder: #9CA3AF;
+  --color-input-bg: #FFFFFF;
+
   /* Common style patterns */
   --focus-ring: 0 0 0 3px var(--color-focus-ring);
   --focus-outline: 2px solid var(--color-primary);
@@ -189,6 +195,12 @@
     --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
     --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
 
+    /* Input text colors - Dark mode */
+    --color-input-text: #F9FAFB;
+    --color-input-text-focus: #FFFFFF;
+    --color-input-placeholder: #9CA3AF;
+    --color-input-bg: #1F2937;
+
     /* Common style patterns - updated for dark mode */
     --focus-ring: 0 0 0 3px var(--color-focus-ring);
     --focus-outline: 2px solid var(--color-primary);
@@ -248,6 +260,12 @@
   --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
   --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
 
+  /* Input text colors - Dark mode */
+  --color-input-text: #F9FAFB;
+  --color-input-text-focus: #FFFFFF;
+  --color-input-placeholder: #9CA3AF;
+  --color-input-bg: #1F2937;
+
   /* Common style patterns - updated for dark mode */
   --focus-ring: 0 0 0 3px var(--color-focus-ring);
   --focus-outline: 2px solid var(--color-primary);
@@ -289,6 +307,12 @@
   --color-warning: var(--color-orange-500);
   --color-info: var(--color-slate-500);
   --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+
+  /* Input text colors - Light mode */
+  --color-input-text: #1F2937;
+  --color-input-text-focus: #111827;
+  --color-input-placeholder: #9CA3AF;
+  --color-input-bg: #FFFFFF;
 
   /* RGB versions for light mode */
   --color-success-rgb: var(--color-teal-500-rgb);
@@ -469,24 +493,62 @@ pre code {
   cursor: not-allowed;
 }
 
-/* Form elements */
+/* Form elements - UPDATED WITH PROFESSIONAL TEXT COLORS */
 .form-control {
   display: block;
   width: 100%;
   padding: var(--space-8) var(--space-12);
   font-size: var(--font-size-md);
   line-height: 1.5;
-  color: var(--color-text);
-  background-color: var(--color-surface);
+  color: var(--color-input-text) !important;
+  background-color: var(--color-input-bg) !important;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-base);
   transition: border-color var(--duration-fast) var(--ease-standard),
     box-shadow var(--duration-fast) var(--ease-standard);
+  -webkit-text-fill-color: var(--color-input-text) !important;
+}
+
+/* Input types specific styling */
+input.form-control,
+select.form-control,
+textarea.form-control {
+  color: var(--color-input-text) !important;
+  -webkit-text-fill-color: var(--color-input-text) !important;
+}
+
+/* Placeholder styling */
+.form-control::placeholder {
+  color: var(--color-input-placeholder) !important;
+  opacity: 1;
+}
+
+.form-control::-webkit-input-placeholder {
+  color: var(--color-input-placeholder) !important;
+}
+
+.form-control::-moz-placeholder {
+  color: var(--color-input-placeholder) !important;
+}
+
+.form-control:-ms-input-placeholder {
+  color: var(--color-input-placeholder) !important;
+}
+
+/* Autofill fix - prevents browser from overriding colors */
+input.form-control:-webkit-autofill,
+input.form-control:-webkit-autofill:hover,
+input.form-control:-webkit-autofill:focus,
+input.form-control:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px var(--color-input-bg) inset !important;
+  -webkit-text-fill-color: var(--color-input-text) !important;
+  caret-color: var(--color-input-text);
 }
 
 textarea.form-control {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
+  resize: vertical;
 }
 
 select.form-control {
@@ -520,6 +582,8 @@ select.form-control {
 .form-control:focus {
   border-color: var(--color-primary);
   outline: var(--focus-outline);
+  color: var(--color-input-text-focus) !important;
+  -webkit-text-fill-color: var(--color-input-text-focus) !important;
 }
 
 .form-label {
@@ -1107,7 +1171,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
 }
 
-/* Contact Form */
+/* Contact Form - UPDATED WITH PROFESSIONAL INPUT COLORS */
 .contact-form {
   background: white;
   border-radius: var(--radius-lg);
@@ -1128,24 +1192,35 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--dark-gray);
 }
 
-.form-control {
+/* Contact form specific input styling */
+.contact-form .form-control {
   width: 100%;
   padding: var(--space-12);
   border: 2px solid var(--color-border);
   border-radius: var(--radius-base);
   font-size: var(--font-size-md);
   transition: border-color var(--duration-fast) var(--ease-standard);
-  background: white;
+  background: white !important;
+  color: #1F2937 !important;
+  -webkit-text-fill-color: #1F2937 !important;
 }
 
-.form-control:focus {
+.contact-form .form-control::placeholder {
+  color: #9CA3AF !important;
+  opacity: 1;
+}
+
+.contact-form .form-control:focus {
   outline: none;
   border-color: var(--bright-blue);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  color: #111827 !important;
+  -webkit-text-fill-color: #111827 !important;
 }
 
-.form-control.error {
+.contact-form .form-control.error {
   border-color: var(--error-red);
+  color: #1F2937 !important;
 }
 
 .phone-input {
@@ -1154,16 +1229,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .phone-prefix {
-  background: var(--color-secondary);
+  background: #F3F4F6;
   padding: var(--space-12);
   border: 2px solid var(--color-border);
   border-right: none;
   border-radius: var(--radius-base) 0 0 var(--radius-base);
   font-weight: 500;
+  color: #374151;
 }
 
 .phone-input .form-control {
   border-radius: 0 var(--radius-base) var(--radius-base) 0;
+  color: #1F2937 !important;
+  -webkit-text-fill-color: #1F2937 !important;
 }
 
 /* Error Messages */
@@ -1275,7 +1353,7 @@ h1, h2, h3, h4, h5, h6 {
     grid-template-columns: 1fr;
     text-align: center;
   }
-  
+
   .courses-grid {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
@@ -1285,7 +1363,7 @@ h1, h2, h3, h4, h5, h6 {
   .header-content {
     flex-wrap: wrap;
   }
-  
+
   .nav {
     display: none;
     position: absolute;
@@ -1297,45 +1375,45 @@ h1, h2, h3, h4, h5, h6 {
     padding: var(--space-16);
     box-shadow: var(--shadow-lg);
   }
-  
+
   .nav.active {
     display: flex;
   }
-  
+
   .mobile-menu-toggle {
     display: block;
   }
-  
+
   .hero {
     padding: var(--space-24) 0;
   }
-  
+
   .hero-title {
     font-size: var(--font-size-3xl);
   }
-  
+
   .hero-subtitle {
     font-size: var(--font-size-lg);
   }
-  
+
   .hero-buttons {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .hero-buttons .btn {
     width: 100%;
     max-width: 300px;
   }
-  
+
   .courses-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .testimonials-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .contact-form {
     padding: var(--space-24);
   }
@@ -1346,19 +1424,19 @@ h1, h2, h3, h4, h5, h6 {
     padding-left: var(--space-12);
     padding-right: var(--space-12);
   }
-  
+
   .hero-title {
     font-size: var(--font-size-2xl);
   }
-  
+
   .section-title {
     font-size: var(--font-size-2xl);
   }
-  
+
   .contact-header {
     padding: var(--space-24);
   }
-  
+
   .modal-content {
     padding: var(--space-24);
   }
