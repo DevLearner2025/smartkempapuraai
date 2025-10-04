@@ -1512,94 +1512,66 @@ h1, h2, h3, h4, h5, h6 {
         gap: 8px;
     }
 }
+
 /* ============================================
-   TRUST SIGNAL - VISITOR COUNTER
-   Positioned above testimonials section
+   TRUST SIGNAL - SIMPLIFIED & CLEAN
    ============================================ */
 
 .trust-signal {
-    background: linear-gradient(135deg, rgba(52, 152, 219, 0.1) 0%, rgba(155, 89, 182, 0.1) 100%);
-    padding: 30px 0;
-    margin: 0 0 40px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    padding: 20px 0;
+    margin: 0 0 30px 0;
 }
 
 .trust-counter {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-    font-size: 1.1rem;
-    color: #ffffff;
-}
-
-.trust-icon {
-    font-size: 1.5rem;
-    animation: sparkle 2s ease-in-out infinite;
-}
-
-@keyframes sparkle {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
+    gap: 10px;
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 600;
+    text-align: center;
 }
 
 .trust-text {
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
+    color: #2c3e50;
 }
 
-.trust-number {
+/* Style the counter number */
+#sfcr7pdzhrcpfcld3quwzrutmyrbhw8scmf {
+    color: #3498db;
     font-weight: 700;
-    font-size: 1.3rem;
-    color: #ffffff;
-    background: linear-gradient(135deg, #3498db 0%, #9b59b6 100%);
-    padding: 4px 12px;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
 }
 
-.trust-number img {
+#sfcr7pdzhrcpfcld3quwzrutmyrbhw8scmf img {
     vertical-align: middle;
-    max-height: 20px;
+    max-height: 24px;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
     .trust-signal {
-        padding: 25px 0;
-        margin: 0 0 30px 0;
+        padding: 15px 0;
+        margin: 0 0 25px 0;
     }
     
     .trust-counter {
-        font-size: 1rem;
-        padding: 0 20px;
-    }
-    
-    .trust-icon {
-        font-size: 1.3rem;
-    }
-    
-    .trust-number {
-        font-size: 1.15rem;
-        padding: 3px 10px;
+        font-size: 1.5rem;
+        gap: 8px;
     }
 }
 
 @media (max-width: 480px) {
     .trust-counter {
-        font-size: 0.95rem;
+        font-size: 1.3rem;
         gap: 6px;
-    }
-    
-    .trust-number {
-        font-size: 1.1rem;
-        padding: 2px 8px;
     }
 }
 
+/* Ensure testimonials section has proper spacing */
 .testimonials {
     margin-top: 0;
+    padding-top: 40px;
 }
 
