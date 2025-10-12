@@ -1,1576 +1,277 @@
-:root {
-  /* Primitive Color Tokens */
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
-  --color-cream-50: rgba(252, 252, 249, 1);
-  --color-cream-100: rgba(255, 255, 253, 1);
-  --color-gray-200: rgba(245, 245, 245, 1);
-  --color-gray-300: rgba(167, 169, 169, 1);
-  --color-gray-400: rgba(119, 124, 124, 1);
-  --color-slate-500: rgba(98, 108, 113, 1);
-  --color-brown-600: rgba(94, 82, 64, 1);
-  --color-charcoal-700: rgba(31, 33, 33, 1);
-  --color-charcoal-800: rgba(38, 40, 40, 1);
-  --color-slate-900: rgba(19, 52, 59, 1);
-  --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-400: rgba(45, 166, 178, 1);
-  --color-teal-500: rgba(33, 128, 141, 1);
-  --color-teal-600: rgba(29, 116, 128, 1);
-  --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
-
-  /* RGB versions for opacity control */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-  --color-slate-500-rgb: 98, 108, 113;
-  --color-red-500-rgb: 192, 21, 47;
-  --color-red-400-rgb: 255, 84, 89;
-  --color-orange-500-rgb: 168, 75, 47;
-  --color-orange-400-rgb: 230, 129, 97;
-
-  /* Background color tokens (Light Mode) */
-  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
-  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
-  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
-  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
-  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
-  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
-  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
-  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
-
-  /* Input text colors - PROFESSIONAL FIX */
-  --color-input-text: #1F2937;
-  --color-input-text-focus: #111827;
-  --color-input-placeholder: #9CA3AF;
-  --color-input-bg: #FFFFFF;
-
-  /* Common style patterns */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  /* RGB versions for opacity control */
-  --color-success-rgb: 33, 128, 141;
-  --color-error-rgb: 192, 21, 47;
-  --color-warning-rgb: 168, 75, 47;
-  --color-info-rgb: 98, 108, 113;
-
-  /* Typography */
-  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
-    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, monospace;
-  --font-size-xs: 11px;
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
-  --font-size-4xl: 30px;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 550;
-  --font-weight-bold: 600;
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --letter-spacing-tight: -0.01em;
-
-  /* Spacing */
-  --space-0: 0;
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-10: 10px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-32: 32px;
-
-  /* Border Radius */
-  --radius-sm: 6px;
-  --radius-base: 8px;
-  --radius-md: 10px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
-    0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
-    0 4px 6px -2px rgba(0, 0, 0, 0.02);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
-
-  /* Animation */
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
-
-  /* Layout */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-}
-
-/* Dark mode colors */
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* RGB versions for opacity control (Dark Mode) */
-    --color-gray-400-rgb: 119, 124, 124;
-    --color-teal-300-rgb: 50, 184, 198;
-    --color-gray-300-rgb: 167, 169, 169;
-    --color-gray-200-rgb: 245, 245, 245;
-
-    /* Background color tokens (Dark Mode) */
-    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
-    --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
-    --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
-    --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
-    --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
-    --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
-    --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
-    --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-
-    /* Semantic Color Tokens (Dark Mode) */
-    --color-background: var(--color-charcoal-700);
-    --color-surface: var(--color-charcoal-800);
-    --color-text: var(--color-gray-200);
-    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-    --color-primary: var(--color-teal-300);
-    --color-primary-hover: var(--color-teal-400);
-    --color-primary-active: var(--color-teal-800);
-    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-error: var(--color-red-400);
-    --color-success: var(--color-teal-300);
-    --color-warning: var(--color-orange-400);
-    --color-info: var(--color-gray-300);
-    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-    --color-btn-primary-text: var(--color-slate-900);
-    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-
-    /* Input text colors - Dark mode */
-    --color-input-text: #F9FAFB;
-    --color-input-text-focus: #FFFFFF;
-    --color-input-placeholder: #9CA3AF;
-    --color-input-bg: #1F2937;
-
-    /* Common style patterns - updated for dark mode */
-    --focus-ring: 0 0 0 3px var(--color-focus-ring);
-    --focus-outline: 2px solid var(--color-primary);
-    --status-bg-opacity: 0.15;
-    --status-border-opacity: 0.25;
-    --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-    --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-    /* RGB versions for dark mode */
-    --color-success-rgb: var(--color-teal-300-rgb);
-    --color-error-rgb: var(--color-red-400-rgb);
-    --color-warning-rgb: var(--color-orange-400-rgb);
-    --color-info-rgb: var(--color-gray-300-rgb);
-  }
-}
-
-/* Data attribute for manual theme switching */
-[data-color-scheme="dark"] {
-  /* RGB versions for opacity control (dark mode) */
-  --color-gray-400-rgb: 119, 124, 124;
-  --color-teal-300-rgb: 50, 184, 198;
-  --color-gray-300-rgb: 167, 169, 169;
-  --color-gray-200-rgb: 245, 245, 245;
-
-  /* Colorful background palette - Dark Mode */
-  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
-  --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
-  --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
-  --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
-  --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
-  --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
-  --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
-  --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
-
-  /* Semantic Color Tokens (Dark Mode) */
-  --color-background: var(--color-charcoal-700);
-  --color-surface: var(--color-charcoal-800);
-  --color-text: var(--color-gray-200);
-  --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-  --color-primary: var(--color-teal-300);
-  --color-primary-hover: var(--color-teal-400);
-  --color-primary-active: var(--color-teal-800);
-  --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
-  --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
-  --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
-  --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-  --color-error: var(--color-red-400);
-  --color-success: var(--color-teal-300);
-  --color-warning: var(--color-orange-400);
-  --color-info: var(--color-gray-300);
-  --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
-  --color-btn-primary-text: var(--color-slate-900);
-  --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
-  --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
-  --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
-
-  /* Input text colors - Dark mode */
-  --color-input-text: #F9FAFB;
-  --color-input-text-focus: #FFFFFF;
-  --color-input-placeholder: #9CA3AF;
-  --color-input-bg: #1F2937;
-
-  /* Common style patterns - updated for dark mode */
-  --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
-  --status-bg-opacity: 0.15;
-  --status-border-opacity: 0.25;
-  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-
-  /* RGB versions for dark mode */
-  --color-success-rgb: var(--color-teal-300-rgb);
-  --color-error-rgb: var(--color-red-400-rgb);
-  --color-warning-rgb: var(--color-orange-400-rgb);
-  --color-info-rgb: var(--color-gray-300-rgb);
-}
-
-[data-color-scheme="light"] {
-  /* RGB versions for opacity control (light mode) */
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-
-  /* Semantic Color Tokens (Light Mode) */
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-btn-primary-text: var(--color-cream-50);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-error: var(--color-red-500);
-  --color-success: var(--color-teal-500);
-  --color-warning: var(--color-orange-500);
-  --color-info: var(--color-slate-500);
-  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
-
-  /* Input text colors - Light mode */
-  --color-input-text: #1F2937;
-  --color-input-text-focus: #111827;
-  --color-input-placeholder: #9CA3AF;
-  --color-input-bg: #FFFFFF;
-
-  /* RGB versions for light mode */
-  --color-success-rgb: var(--color-teal-500-rgb);
-  --color-error-rgb: var(--color-red-500-rgb);
-  --color-warning-rgb: var(--color-orange-500-rgb);
-  --color-info-rgb: var(--color-slate-500-rgb);
-}
-
-/* Base styles */
-html {
-  font-size: var(--font-size-base);
-  font-family: var(--font-family-base);
-  line-height: var(--line-height-normal);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-/* Typography */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-tight);
-  color: var(--color-text);
-  letter-spacing: var(--letter-spacing-tight);
-}
-
-h1 {
-  font-size: var(--font-size-4xl);
-}
-h2 {
-  font-size: var(--font-size-3xl);
-}
-h3 {
-  font-size: var(--font-size-2xl);
-}
-h4 {
-  font-size: var(--font-size-xl);
-}
-h5 {
-  font-size: var(--font-size-lg);
-}
-h6 {
-  font-size: var(--font-size-md);
-}
-
-p {
-  margin: 0 0 var(--space-16) 0;
-}
-
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-standard);
-}
-
-a:hover {
-  color: var(--color-primary-hover);
-}
-
-code,
-pre {
-  font-family: var(--font-family-mono);
-  font-size: calc(var(--font-size-base) * 0.95);
-  background-color: var(--color-secondary);
-  border-radius: var(--radius-sm);
-}
-
-code {
-  padding: var(--space-1) var(--space-4);
-}
-
-pre {
-  padding: var(--space-16);
-  margin: var(--space-16) 0;
-  overflow: auto;
-  border: 1px solid var(--color-border);
-}
-
-pre code {
-  background: none;
-  padding: 0;
-}
-
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  line-height: 1.5;
-  cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-standard);
-  border: none;
-  text-decoration: none;
-  position: relative;
-}
-
-.btn:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
-
-.btn--primary {
-  background: var(--color-primary);
-  color: var(--color-btn-primary-text);
-}
-
-.btn--primary:hover {
-  background: var(--color-primary-hover);
-}
-
-.btn--primary:active {
-  background: var(--color-primary-active);
-}
-
-.btn--secondary {
-  background: var(--color-secondary);
-  color: var(--color-text);
-}
-
-.btn--secondary:hover {
-  background: var(--color-secondary-hover);
-}
-
-.btn--secondary:active {
-  background: var(--color-secondary-active);
-}
-
-.btn--outline {
-  background: transparent;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-}
-
-.btn--outline:hover {
-  background: var(--color-secondary);
-}
-
-.btn--sm {
-  padding: var(--space-4) var(--space-12);
-  font-size: var(--font-size-sm);
-  border-radius: var(--radius-sm);
-}
-
-.btn--lg {
-  padding: var(--space-10) var(--space-20);
-  font-size: var(--font-size-lg);
-  border-radius: var(--radius-md);
-}
-
-.btn--full-width {
-  width: 100%;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Form elements - UPDATED WITH PROFESSIONAL TEXT COLORS */
-.form-control {
-  display: block;
-  width: 100%;
-  padding: var(--space-8) var(--space-12);
-  font-size: var(--font-size-md);
-  line-height: 1.5;
-  color: var(--color-input-text) !important;
-  background-color: var(--color-input-bg) !important;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-base);
-  transition: border-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
-  -webkit-text-fill-color: var(--color-input-text) !important;
-}
-
-/* Input types specific styling */
-input.form-control,
-select.form-control,
-textarea.form-control {
-  color: var(--color-input-text) !important;
-  -webkit-text-fill-color: var(--color-input-text) !important;
-}
-
-/* Placeholder styling */
-.form-control::placeholder {
-  color: var(--color-input-placeholder) !important;
-  opacity: 1;
-}
-
-.form-control::-webkit-input-placeholder {
-  color: var(--color-input-placeholder) !important;
-}
-
-.form-control::-moz-placeholder {
-  color: var(--color-input-placeholder) !important;
-}
-
-.form-control:-ms-input-placeholder {
-  color: var(--color-input-placeholder) !important;
-}
-
-/* Autofill fix - prevents browser from overriding colors */
-input.form-control:-webkit-autofill,
-input.form-control:-webkit-autofill:hover,
-input.form-control:-webkit-autofill:focus,
-input.form-control:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 30px var(--color-input-bg) inset !important;
-  -webkit-text-fill-color: var(--color-input-text) !important;
-  caret-color: var(--color-input-text);
-}
-
-textarea.form-control {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  resize: vertical;
-}
-
-select.form-control {
-  padding: var(--space-8) var(--space-12);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-image: var(--select-caret-light);
-  background-repeat: no-repeat;
-  background-position: right var(--space-12) center;
-  background-size: 16px;
-  padding-right: var(--space-32);
-}
-
-/* Add a dark mode specific caret */
-@media (prefers-color-scheme: dark) {
-  select.form-control {
-    background-image: var(--select-caret-dark);
-  }
-}
-
-/* Also handle data-color-scheme */
-[data-color-scheme="dark"] select.form-control {
-  background-image: var(--select-caret-dark);
-}
-
-[data-color-scheme="light"] select.form-control {
-  background-image: var(--select-caret-light);
-}
-
-.form-control:focus {
-  border-color: var(--color-primary);
-  outline: var(--focus-outline);
-  color: var(--color-input-text-focus) !important;
-  -webkit-text-fill-color: var(--color-input-text-focus) !important;
-}
-
-.form-label {
-  display: block;
-  margin-bottom: var(--space-8);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.form-group {
-  margin-bottom: var(--space-16);
-}
-
-/* Card component */
-.card {
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-card-border);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: box-shadow var(--duration-normal) var(--ease-standard);
-}
-
-.card:hover {
-  box-shadow: var(--shadow-md);
-}
-
-.card__body {
-  padding: var(--space-16);
-}
-
-.card__header,
-.card__footer {
-  padding: var(--space-16);
-  border-bottom: 1px solid var(--color-card-border-inner);
-}
-
-/* Status indicators - simplified with CSS variables */
-.status {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-6) var(--space-12);
-  border-radius: var(--radius-full);
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-sm);
-}
-
-.status--success {
-  background-color: rgba(
-    var(--color-success-rgb, 33, 128, 141),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-success);
-  border: 1px solid
-    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
-}
-
-.status--error {
-  background-color: rgba(
-    var(--color-error-rgb, 192, 21, 47),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-error);
-  border: 1px solid
-    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
-}
-
-.status--warning {
-  background-color: rgba(
-    var(--color-warning-rgb, 168, 75, 47),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-warning);
-  border: 1px solid
-    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
-}
-
-.status--info {
-  background-color: rgba(
-    var(--color-info-rgb, 98, 108, 113),
-    var(--status-bg-opacity)
-  );
-  color: var(--color-info);
-  border: 1px solid
-    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
-}
-
-/* Container layout */
-.container {
-  width: 100%;
-  margin-right: auto;
-  margin-left: auto;
-  padding-right: var(--space-16);
-  padding-left: var(--space-16);
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: var(--container-sm);
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: var(--container-md);
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: var(--container-lg);
-  }
-}
-@media (min-width: 1280px) {
-  .container {
-    max-width: var(--container-xl);
-  }
-}
-
-/* Utility classes */
-.flex {
-  display: flex;
-}
-.flex-col {
-  flex-direction: column;
-}
-.items-center {
-  align-items: center;
-}
-.justify-center {
-  justify-content: center;
-}
-.justify-between {
-  justify-content: space-between;
-}
-.gap-4 {
-  gap: var(--space-4);
-}
-.gap-8 {
-  gap: var(--space-8);
-}
-.gap-16 {
-  gap: var(--space-16);
-}
-
-.m-0 {
-  margin: 0;
-}
-.mt-8 {
-  margin-top: var(--space-8);
-}
-.mb-8 {
-  margin-bottom: var(--space-8);
-}
-.mx-8 {
-  margin-left: var(--space-8);
-  margin-right: var(--space-8);
-}
-.my-8 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
-}
-
-.p-0 {
-  padding: 0;
-}
-.py-8 {
-  padding-top: var(--space-8);
-  padding-bottom: var(--space-8);
-}
-.px-8 {
-  padding-left: var(--space-8);
-  padding-right: var(--space-8);
-}
-.py-16 {
-  padding-top: var(--space-16);
-  padding-bottom: var(--space-16);
-}
-.px-16 {
-  padding-left: var(--space-16);
-  padding-right: var(--space-16);
-}
-
-.block {
-  display: block;
-}
-.hidden {
-  display: none;
-}
-
-/* Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-:focus-visible {
-  outline: var(--focus-outline);
-  outline-offset: 2px;
-}
-
-/* Dark mode specifics */
-[data-color-scheme="dark"] .btn--outline {
-  border: 1px solid var(--color-border-secondary);
-}
-
-@font-face {
-  font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
-    format('woff2');
-}
-
-/* END PERPLEXITY DESIGN SYSTEM */
-/* Custom styles for FutureWizAcademy - Following BrightMindAI branding */
-:root {
-  /* FutureWizAcademy specific colors - matching BrightMindAI */
-  --bright-blue: #2563EB;
-  --bright-orange: #F97316;
-  --bright-white: #FFFFFF;
-  --light-gray: #F8FAFC;
-  --dark-gray: #374151;
-  --success-green: #10B981;
-  --error-red: #EF4444;
-}
-
-/* Override design system fonts */
-html {
-  font-family: 'Inter', var(--font-family-base);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Poppins', var(--font-family-base);
-  font-weight: 700;
-}
-
-/* Page management */
-.page {
-  display: none;
-}
-
-.page.active {
-  display: block;
-}
-
-/* Header */
-.header {
-  background: var(--bright-blue);
-  color: white;
-  padding: var(--space-16) 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: var(--shadow-md);
-}
-
-.header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-20);
-}
-
-.logo {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-size: var(--font-size-xl);
-  color: white;
-  text-decoration: none;
-}
-
-.logo-text {
-  color: white;
-}
-
-.nav {
-  display: flex;
-  gap: var(--space-24);
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: opacity var(--duration-fast) var(--ease-standard);
-  padding: var(--space-8) 0;
-}
-
-.nav-link:hover {
-  opacity: 0.8;
-  color: white;
-}
-
-.mobile-menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: var(--font-size-xl);
-  cursor: pointer;
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, var(--bright-blue) 0%, var(--bright-white) 100%);
-  padding: var(--space-32) 0;
-  min-height: 600px;
-  display: flex;
-  align-items: center;
-}
-
-.hero-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-32);
-  align-items: center;
-}
-
-.hero-title {
-  font-size: var(--font-size-4xl);
-  color: var(--dark-gray);
-  margin-bottom: var(--space-16);
-  line-height: 1.2;
-}
-
-.hero-subtitle {
-  font-size: var(--font-size-xl);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-24);
-  line-height: 1.5;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: var(--space-16);
-  flex-wrap: wrap;
-}
-
-.hero-buttons .btn {
-  padding: var(--space-12) var(--space-24);
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-}
-
-.btn--primary {
-  background: var(--bright-orange);
-  color: white;
-  border: none;
-}
-
-.btn--primary:hover {
-  background: #e8640f;
-}
-
-.btn--outline {
-  background: transparent;
-  color: var(--bright-blue);
-  border: 2px solid var(--bright-blue);
-}
-
-.btn--outline:hover {
-  background: var(--bright-blue);
-  color: white;
-}
-
-.hero-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero-placeholder {
-  background: var(--color-bg-1);
-  border-radius: var(--radius-lg);
-  padding: var(--space-32);
-  text-align: center;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-16);
-}
-
-.ai-icon, .students-icon {
-  font-size: 3rem;
-}
-
-/* Sections */
-.section-title {
-  text-align: center;
-  font-size: var(--font-size-3xl);
-  color: var(--dark-gray);
-  margin-bottom: var(--space-16);
-}
-
-.section-subtitle {
-  text-align: center;
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-32);
-}
-
-/* Courses Section */
-.courses {
-  padding: var(--space-32) 0;
-  background: var(--light-gray);
-}
-
-.courses-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: var(--space-24);
-  margin-top: var(--space-32);
-}
-
-.course-card {
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: var(--space-24);
-  box-shadow: var(--shadow-sm);
-  transition: transform var(--duration-normal) var(--ease-standard),
-              box-shadow var(--duration-normal) var(--ease-standard);
-  position: relative;
-  border: 1px solid var(--color-card-border);
-}
-
-.course-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-lg);
-}
-
-.course-card--special {
-  border: 2px solid var(--bright-orange);
-  background: linear-gradient(135deg, #fff9f5 0%, #ffffff 100%);
-}
-
-.special-badge {
-  position: absolute;
-  top: -10px;
-  right: var(--space-16);
-  background: var(--bright-orange);
-  color: white;
-  padding: var(--space-4) var(--space-12);
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-}
-
-.course-icon {
-  font-size: 2.5rem;
-  margin-bottom: var(--space-16);
-  display: block;
-}
-
-.course-title {
-  font-size: var(--font-size-xl);
-  color: var(--dark-gray);
-  margin-bottom: var(--space-12);
-}
-
-.course-description {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-16);
-  line-height: 1.6;
-}
-
-.course-features {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 var(--space-20) 0;
-}
-
-.course-features li {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-8);
-  font-size: var(--font-size-sm);
-}
-
-.course-card .btn {
-  width: 100%;
-  justify-content: center;
-}
-
-/* Testimonials Section */
-.testimonials {
-  padding: var(--space-32) 0;
-  background: white;
-}
-
-.testimonials-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-24);
-  margin-top: var(--space-32);
-}
-
-.testimonial-card {
-  background: var(--color-surface);
-  border-radius: var(--radius-lg);
-  padding: var(--space-24);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--color-card-border);
-}
-
-.testimonial-rating {
-  margin-bottom: var(--space-16);
-  font-size: var(--font-size-lg);
-}
-
-.testimonial-text {
-  color: var(--dark-gray);
-  font-style: italic;
-  margin-bottom: var(--space-20);
-  line-height: 1.6;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-  gap: var(--space-12);
-}
-
-.author-avatar {
-  font-size: var(--font-size-2xl);
-}
-
-.author-info h4 {
-  margin: 0;
-  color: var(--dark-gray);
-  font-size: var(--font-size-md);
-}
-
-.author-info p {
-  margin: 0;
-  color: var(--color-text-secondary);
-  font-size: var(--font-size-sm);
-}
-
-/* Footer */
-.footer {
-  background: var(--dark-gray);
-  color: white;
-  padding: var(--space-16) 0;
-}
-
-.footer-bottom {
-  text-align: center;
-}
-
-.footer-bottom p {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* Contact Page Styles */
-.contact {
-  padding: var(--space-32) 0;
-  background: var(--light-gray);
-  min-height: 80vh;
-}
-
-.contact-header {
-  text-align: center;
-  margin-bottom: var(--space-32);
-  background: white;
-  padding: var(--space-32);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-.contact-header h1 {
-  font-size: var(--font-size-3xl);
-  color: var(--dark-gray);
-  margin-bottom: var(--space-12);
-}
-
-.contact-header p {
-  font-size: var(--font-size-lg);
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-/* Contact Form - UPDATED WITH PROFESSIONAL INPUT COLORS */
-.contact-form {
-  background: white;
-  border-radius: var(--radius-lg);
-  padding: var(--space-32);
-  box-shadow: var(--shadow-sm);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.form-group {
-  margin-bottom: var(--space-20);
-}
-
-.form-label {
-  display: block;
-  margin-bottom: var(--space-8);
-  font-weight: 500;
-  color: var(--dark-gray);
-}
-
-/* Contact form specific input styling */
-.contact-form .form-control {
-  width: 100%;
-  padding: var(--space-12);
-  border: 2px solid var(--color-border);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-md);
-  transition: border-color var(--duration-fast) var(--ease-standard);
-  background: white !important;
-  color: #1F2937 !important;
-  -webkit-text-fill-color: #1F2937 !important;
-}
-
-.contact-form .form-control::placeholder {
-  color: #9CA3AF !important;
-  opacity: 1;
-}
-
-.contact-form .form-control:focus {
-  outline: none;
-  border-color: var(--bright-blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-  color: #111827 !important;
-  -webkit-text-fill-color: #111827 !important;
-}
-
-.contact-form .form-control.error {
-  border-color: var(--error-red);
-  color: #1F2937 !important;
-}
-
-.phone-input {
-  display: flex;
-  align-items: center;
-}
-
-.phone-prefix {
-  background: #F3F4F6;
-  padding: var(--space-12);
-  border: 2px solid var(--color-border);
-  border-right: none;
-  border-radius: var(--radius-base) 0 0 var(--radius-base);
-  font-weight: 500;
-  color: #374151;
-}
-
-.phone-input .form-control {
-  border-radius: 0 var(--radius-base) var(--radius-base) 0;
-  color: #1F2937 !important;
-  -webkit-text-fill-color: #1F2937 !important;
-}
-
-/* Error Messages */
-.error-message {
-  color: var(--error-red);
-  font-size: var(--font-size-sm);
-  margin-top: var(--space-4);
-  display: none;
-}
-
-.error-message.show {
-  display: block;
-}
-
-.form-control.error + .error-message {
-  display: block;
-}
-
-.contact-info {
-  text-align: center;
-  margin-top: var(--space-16);
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
-}
-
-/* Modal */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10000;
-}
-
-.modal.hidden {
-  display: none;
-}
-
-.modal-content {
-  background: white;
-  padding: var(--space-32);
-  border-radius: var(--radius-lg);
-  max-width: 500px;
-  width: 90%;
-  text-align: center;
-  box-shadow: var(--shadow-lg);
-}
-
-.modal-content h2 {
-  color: var(--success-green);
-  margin-bottom: var(--space-16);
-}
-
-.modal-content p {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-24);
-}
-
-.modal-actions {
-  display: flex;
-  justify-content: center;
-}
-
-/* Button Styles */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-8) var(--space-16);
-  border-radius: var(--radius-base);
-  font-size: var(--font-size-base);
-  font-weight: 500;
-  line-height: 1.5;
-  cursor: pointer;
-  transition: all var(--duration-normal) var(--ease-standard);
-  border: none;
-  text-decoration: none;
-  position: relative;
-}
-
-.btn:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
-}
-
-.btn--lg {
-  padding: var(--space-12) var(--space-24);
-  font-size: var(--font-size-lg);
-  border-radius: var(--radius-md);
-}
-
-.btn--full-width {
-  width: 100%;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .courses-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
-}
-
-@media (max-width: 768px) {
-  .header-content {
-    flex-wrap: wrap;
-  }
-
-  .nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--bright-blue);
-    flex-direction: column;
-    padding: var(--space-16);
-    box-shadow: var(--shadow-lg);
-  }
-
-  .nav.active {
-    display: flex;
-  }
-
-  .mobile-menu-toggle {
-    display: block;
-  }
-
-  .hero {
-    padding: var(--space-24) 0;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-3xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-lg);
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-buttons .btn {
-    width: 100%;
-    max-width: 300px;
-  }
-
-  .courses-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-form {
-    padding: var(--space-24);
-  }
-}
-
-@media (max-width: 480px) {
-  .container {
-    padding-left: var(--space-12);
-    padding-right: var(--space-12);
-  }
-
-  .hero-title {
-    font-size: var(--font-size-2xl);
-  }
-
-  .section-title {
-    font-size: var(--font-size-2xl);
-  }
-
-  .contact-header {
-    padding: var(--space-24);
-  }
-
-  .modal-content {
-    padding: var(--space-24);
-  }
-}
-
-/* Utility classes */
-.text-center {
-  text-align: center;
-}
-
-/* Loading state */
-.loading {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* Animation classes */
-.fade-in {
-  animation: fadeIn var(--duration-normal) var(--ease-standard);
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Logo link styling */
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-}
-
-.logo-link:hover {
-    opacity: 0.8;
-}
-
-/* Logo image styling */
-.logo-image {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-    border-radius: 8px;
-}
-
-/* Logo text styling */
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #fff;
-    white-space: nowrap;
-}
-
-/* Responsive adjustments for mobile */
-@media (max-width: 768px) {
-    .logo-image {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .logo-text {
-        font-size: 1.2rem;
-    }
-    
-    .logo-link {
-        gap: 8px;
-    }
-}
-
-/* ============================================
-   TRUST SIGNAL - SIMPLIFIED & CLEAN
-   ============================================ */
-
-.trust-signal {
-    background: transparent;
-    padding: 20px 0;
-    margin: 0 0 30px 0;
-}
-
-.trust-counter {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-size: 1.8rem;
-    color: #333;
-    font-weight: 600;
-    text-align: center;
-}
-
-.trust-text {
-    color: #2c3e50;
-}
-
-/* Style the counter number */
-#sfcr7pdzhrcpfcld3quwzrutmyrbhw8scmf {
-    color: #3498db;
-    font-weight: 700;
-}
-
-#sfcr7pdzhrcpfcld3quwzrutmyrbhw8scmf img {
-    vertical-align: middle;
-    max-height: 24px;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .trust-signal {
-        padding: 15px 0;
-        margin: 0 0 25px 0;
-    }
-    
-    .trust-counter {
-        font-size: 1.5rem;
-        gap: 8px;
-    }
-}
-
-@media (max-width: 480px) {
-    .trust-counter {
-        font-size: 1.3rem;
-        gap: 6px;
-    }
-}
-
-/* Ensure testimonials section has proper spacing */
-.testimonials {
-    margin-top: 0;
-    padding-top: 40px;
-}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="google-site-verification" content="Glf__pWDbP8p3sBp14MBOLdzk3u5-Tw1dP9QQDSfYxc" />
+      <!-- Primary Meta Tags -->
+      <title>Best Home Tuition in Kempapura | ICSE CBSE Math Science AI Tutor Bangalore</title>
+      <meta name="description" content="Expert home tuition in Kempapura, Bangalore for ICSE & CBSE students (Grades 6-12). AI-powered tutoring for Math, Science, English. Top-rated tutor near Coffee Board Layout. Book free demo!">
+      <meta name="keywords" content="home tuition Kempapura, tutor Kempapura, ICSE tuition Bangalore, CBSE tutor, math tuition, science tuition, AI tutoring, home tutor near me, best tuition in Kempapura, Coffee Board Layout tuition, online tutoring Bangalore, private tutor ICSE CBSE">
+      <meta name="author" content="SmartKempapuraAI">
+      <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+      <meta name="googlebot" content="index, follow">
+      <!-- Canonical URL -->
+      <link rel="canonical" href="https://smartkempapuraai.netlify.app/">
+      <!-- Open Graph / Facebook -->
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://smartkempapuraai.netlify.app/">
+      <meta property="og:title" content="Best Home Tuition in Kempapura | ICSE CBSE Math Science AI Tutor">
+      <meta property="og:description" content="Expert home tuition in Kempapura for ICSE & CBSE. AI-powered Math, Science tutoring. Top-rated tutor near Coffee Board Layout, Bangalore.">
+      <meta property="og:image" content="https://smartkempapuraai.netlify.app/og-image.jpg">
+      <meta property="og:locale" content="en_IN">
+      <meta property="og:site_name" content="SmartKempapuraAI">
+      <!-- Twitter Card -->
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:url" content="https://smartkempapuraai.netlify.app/">
+      <meta name="twitter:title" content="Best Home Tuition in Kempapura | ICSE CBSE Tutor">
+      <meta name="twitter:description" content="Expert home tuition in Kempapura for ICSE & CBSE. AI-powered tutoring for Math, Science.">
+      <meta name="twitter:image" content="https://smartkempapuraai.netlify.app/twitter-image.jpg">
+      <link rel="stylesheet" href="style.css">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+      <!-- EmailJS SDK -->
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+      <!-- EmailJS Initialization -->
+      <script type="text/javascript">
+         (function() {
+             emailjs.init({
+                 publicKey: "xebt9YJl8sw_gfw11"
+             });
+         })();
+      </script>
+   </head>
+   <body>
+      <!-- Homepage -->
+      <div id="homepage" class="page active">
+         <!-- Header -->
+         <header class="header">
+            <div class="container">
+               <div class="header-content">
+                  <div class="logo">
+                     <a href="#" onclick="showHomepage()" class="logo-link">
+                     <img src="Gemini_Generated_Image_bmtx16bmtx16bmtx.png" alt="SmartKempapuraAI Logo" class="logo-image">
+                     <span class="logo-text">FutureWizAcademy</span>
+                     </a>
+                  </div>
+                  <nav class="nav">
+                     <a href="#" class="nav-link" onclick="showHomepage()">Home</a>
+                     <a href="#" class="nav-link" onclick="showContactPage()">Contact</a>
+                  </nav>
+                  <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+               </div>
+            </div>
+         </header>
+         <!-- Hero Section -->
+         <section class="hero">
+            <div class="container">
+               <div class="hero-content">
+                  <div class="hero-text">
+                     <h1 class="hero-title">Bright Minds, Brighter Future with AI</h1>
+                     <p class="hero-subtitle">Personalized Online Tutoring for ICSE & CBSE Students in Coffee Board Layout, Kempapura</p>
+                     <div class="hero-buttons">
+                        <button class="btn btn--primary btn--lg" onclick="showContactPage()">Begin Your AI Learning Journey</button>
+                     </div>
+                  </div>
+                  <div class="hero-image">
+                     <div class="hero-placeholder">
+                        <div class="ai-icon">🤖</div>
+                        <div class="students-icon">👨‍🎓👩‍🎓</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Courses Section -->
+         <section id="courses" class="courses">
+            <div class="container">
+               <h2 class="section-title">Expert Online Tutoring - Grades 6-12</h2>
+               <div class="courses-grid">
+                  <div class="course-card course-card--special">
+                     <div class="special-badge">⭐ AI Powered</div>
+                     <div class="course-icon">🧠⚡</div>
+                     <h3 class="course-title">SmartLearn AI</h3>
+                     <p class="course-description">Revolutionary AI-powered learning techniques and study skills designed for grades 6-12</p>
+                     <ul class="course-features">
+                        <li>• Personalized Learning Paths</li>
+                        <li>• AI Study Assistant</li>
+                        <li>• Success Analytics</li>
+                     </ul>
+                     <button class="btn btn--primary" onclick="showContactPage()">Master AI Learning</button>
+                  </div>
+                  <div class="course-card">
+                     <div class="course-icon">⚛️</div>
+                     <h3 class="course-title">Science (Physics/Chemistry/Biology)</h3>
+                     <p class="course-description">Comprehensive science tutoring with virtual lab experiments</p>
+                     <ul class="course-features">
+                        <li>• Interactive Simulations</li>
+                        <li>• Concept Mapping</li>
+                        <li>• Exam Prep</li>
+                     </ul>
+                     <button class="btn btn--primary" onclick="showContactPage()">Discover Science</button>
+                  </div>
+                  <div class="course-card">
+                     <div class="course-icon">📚</div>
+                     <h3 class="course-title">English (Literature/Grammar)</h3>
+                     <p class="course-description">Language mastery through AI-enhanced learning techniques</p>
+                     <ul class="course-features">
+                        <li>• Essay Writing AI</li>
+                        <li>• Grammar Check</li>
+                        <li>• Speaking Practice</li>
+                     </ul>
+                     <button class="btn btn--primary" onclick="showContactPage()">Master English</button>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Trust Signal - Visitor Counter -->
+
+</div>
+
+         <!-- Testimonials Section -->
+         <section class="testimonials">
+            <div class="container">
+               <h2 class="section-title">What Our Students Say</h2>
+               <div class="testimonials-grid">
+                  <div class="testimonial-card">
+                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                     <p class="testimonial-text">"SmartKempapuraAI helped me improve my math scores from 65% to 92% in just 6 months! The AI tutor is amazing."</p>
+                     <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🎓</div>
+                        <div class="author-info">
+                           <h4>Arjun Sharma</h4>
+                           <p>10th CBSE, Coffee Board Layout</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="testimonial-card">
+                     <div class="testimonial-rating">⭐⭐⭐⭐</div>
+                     <p class="testimonial-text">"The AI learning techniques changed how I study. Now I understand concepts much better."</p>
+                     <div class="testimonial-author">
+                        <div class="author-avatar">👩‍🎓</div>
+                        <div class="author-info">
+                           <h4>Priya Nair</h4>
+                           <p>12th ICSE, Kempapura</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="testimonial-card">
+                     <div class="testimonial-rating">⭐⭐⭐⭐</div>
+                     <p class="testimonial-text">"Science experiments with AI made learning so much fun. I look forward to every session!"</p>
+                     <div class="testimonial-author">
+                        <div class="author-avatar">👨‍🎓</div>
+                        <div class="author-info">
+                           <h4>Rahul Kumar</h4>
+                           <p>9th CBSE, Coffee Board Layout</p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="testimonial-card">
+                     <div class="testimonial-rating">⭐⭐⭐⭐⭐</div>
+                     <p class="testimonial-text">"English writing became easy with AI assistance. My essays are now much better structured."</p>
+                     <div class="testimonial-author">
+                        <div class="author-avatar">👩‍🎓</div>
+                        <div class="author-info">
+                           <h4>Meera Patel</h4>
+                           <p>11th ICSE, Kempapura</p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Footer -->
+         <footer class="footer">
+            <div class="container">
+               <div class="footer-bottom">
+                  <p>© 2025 SmartKempapuraAI. All rights reserved.</p>
+               </div>
+            </div>
+         </footer>
+      </div>
+      <!-- Contact Page -->
+      <div id="contact-page" class="page">
+         <!-- Header (same as homepage) -->
+         <header class="header">
+            <div class="container">
+               <div class="header-content">
+                  <div class="logo">
+                     <a href="#" onclick="showHomepage()" class="logo-link">
+                     <img src="Gemini_Generated_Image_bmtx16bmtx16bmtx.png" alt="SmartKempapuraAI Logo" class="logo-image">
+                     <span class="logo-text">SmartKempapuraAI</span>
+                     </a>
+                  </div>
+                  <nav class="nav">
+                     <a href="#" class="nav-link" onclick="showHomepage()">Home</a>
+                     <a href="#" class="nav-link" onclick="showContactPage()">Contact</a>
+                  </nav>
+                  <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+               </div>
+            </div>
+         </header>
+         <!-- Contact Form Section -->
+         <section class="contact">
+            <div class="container">
+               <div class="contact-header">
+                  <h1>Contact Us</h1>
+                  <p>Fill out the form and we'll reach out within 24 hours</p>
+               </div>
+               <form id="contactForm" class="contact-form" novalidate>
+                  <div class="form-group">
+                     <label class="form-label" for="fullName">Full Name *</label>
+                     <input type="text" id="fullName" name="fullName" class="form-control" required>
+                     <div class="error-message" id="fullName-error"></div>
+                  </div>
+                  <div class="form-group">
+                     <label class="form-label" for="phoneNumber">Phone Number *</label>
+                     <div class="phone-input">
+                        <span class="phone-prefix">+91</span>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" class="form-control" required>
+                     </div>
+                     <div class="error-message" id="phoneNumber-error"></div>
+                  </div>
+                  <div class="form-group">
+                     <label class="form-label" for="courseInterest">Course Interest *</label>
+                     <select id="courseInterest" name="courseInterest" class="form-control" required>
+                        <option value="">Select Course</option>
+                        <option value="SmartLearn AI">SmartLearn AI</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="Multiple Subjects">Multiple Subjects</option>
+                     </select>
+                     <div class="error-message" id="courseInterest-error"></div>
+                  </div>
+                  <button type="submit" class="btn btn--primary btn--lg btn--full-width">
+                  Submit & Get Free Demo
+                  </button>
+                  <p class="contact-info">
+                     🤖 We will reach out within 24 hours to schedule your personalized AI tutoring demo
+                  </p>
+               </form>
+               <!-- Success Modal -->
+               <div id="successModal" class="modal hidden">
+                  <div class="modal-content">
+                     <h2>🎉 Thank You!</h2>
+                     <p>Your message has been submitted successfully. We will contact you within 24 hours to schedule your free demo session.</p>
+                     <div class="modal-actions">
+                        <button class="btn btn--primary" onclick="hideSuccessModal(); showHomepage();">Back to Homepage</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+         <!-- Footer -->
+         <footer class="footer">
+            <div class="container">
+               <div class="footer-bottom">
+                  <p>© 2025 SmartKempapuraAI. All rights reserved.</p>
+               </div>
+            </div>
+         </footer>
+<div id="sfcr7pdzhrcpfcld3quwzrutmyrbhw8scmf" style="display: inline;"></div>
+
+      </div>
+      <script src="app.js"></script>
+   </body>
+</html>
