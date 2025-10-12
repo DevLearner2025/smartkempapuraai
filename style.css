@@ -1544,3 +1544,11 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     padding-top: 40px;
 }
+
+/* Counter below footer - minimal styling */
+#sfcr7pdzhrcpfcld3quwzrutmyrbhw8scmf {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #666;
+}
