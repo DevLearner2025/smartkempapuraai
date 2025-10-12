@@ -1,4 +1,4 @@
-// SmartKempapuraAI Application JavaScript
+// FutureWizAcademy Application JavaScript
 
 // Global variables
 let currentPage = 'homepage';
@@ -29,7 +29,7 @@ function initializeApp() {
     // Add smooth scrolling for navigation links
     addSmoothScrolling();
     
-    console.log('SmartKempapuraAI application initialized');
+    console.log('FutureWizAcademy application initialized');
 }
 
 // Page Navigation Functions
@@ -38,7 +38,7 @@ function showHomepage() {
         homepage.classList.add('active');
         contactPage.classList.remove('active');
         currentPage = 'homepage';
-        document.title = 'SmartKempapuraAI - AI-Powered Tutoring for ICSE & CBSE Students';
+        document.title = 'FutureWizAcademy - AI-Powered Tutoring for ICSE & CBSE Students';
         window.scrollTo(0, 0);
     }
 }
@@ -48,7 +48,7 @@ function showContactPage() {
         homepage.classList.remove('active');
         contactPage.classList.add('active');
         currentPage = 'contact';
-        document.title = 'Contact Us - SmartKempapuraAI';
+        document.title = 'Contact Us - FutureWizAcademy';
         window.scrollTo(0, 0);
         
         // Focus on first form field for better UX
@@ -483,7 +483,7 @@ if (contactForm) {
 }
 
 // Export functions for potential external use
-window.SmartKempapuraAI = {
+window.FutureWizAcademy = {
     showHomepage,
     showContactPage,
     hideSuccessModal,
