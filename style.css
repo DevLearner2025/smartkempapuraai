@@ -802,9 +802,9 @@ select.form-control {
 }
 
 /* END PERPLEXITY DESIGN SYSTEM */
-/* Custom styles for SmartKempapuraAI - Following BrightMindAI branding */
+/* Custom styles for FutureWizAcademy - Following BrightMindAI branding */
 :root {
-  /* SmartKempapuraAI specific colors - matching BrightMindAI */
+  /* FutureWizAcademy specific colors - matching BrightMindAI */
   --bright-blue: #2563EB;
   --bright-orange: #F97316;
   --bright-white: #FFFFFF;
@@ -1574,4 +1574,3 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     padding-top: 40px;
 }
-
